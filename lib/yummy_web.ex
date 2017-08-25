@@ -42,6 +42,7 @@ defmodule YummyWeb do
       import YummyWeb.Router.Helpers
       import YummyWeb.Helpers.ErrorHelpers
       import YummyWeb.Helpers.InputHelpers
+      import YummyWeb.Helpers.KeroseneHelpers
       import YummyWeb.Gettext
     end
   end

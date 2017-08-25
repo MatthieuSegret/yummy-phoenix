@@ -3,8 +3,8 @@ defmodule Yummy.Recipes do
   alias Yummy.Recipes.Recipe
   alias Yummy.Repo
 
-  def search_recipes(keywords) do
-    from r in Recipe,
+  def search_recipes(query, keywords) do
+    from r in query,
     where: ilike(r.title, ^("%#{keywords}%")) or
            ilike(r.content, ^("%#{keywords}%"))
   end

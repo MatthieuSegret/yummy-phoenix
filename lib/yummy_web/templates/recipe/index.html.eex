@@ -36,3 +36,7 @@
     </div>
   <% end %>
 </div>
+
+<%= if @kerosene.total_pages > 1 do %>
+  <div><%= paginate @conn, @kerosene, next_label: "Suivant", previous_label: "Précédent" %></div>
+<% end %>

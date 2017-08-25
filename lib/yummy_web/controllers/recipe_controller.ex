@@ -5,16 +5,18 @@ defmodule YummyWeb.RecipeController do
 
   plug :put_recipe when action in [:show, :edit, :update, :delete]    
 
-  def index(conn, _params) do
-    recipes = Recipe
+  def index(conn, params) do
+    {recipes, kerosene} = Recipe
       |> order_by(desc: :inserted_at)
-      |> Repo.all
-    render conn, "index.html", recipes: recipes, keywords: nil
+      |> Repo.paginate(params)
+    render conn, "index.html", recipes: recipes, keywords: nil, kerosene: kerosene
   end
 
-  def search(conn, %{"keywords" => keywords}) do
-    recipes = Recipes.search_recipes(keywords) |> Repo.all
-    render conn, "index.html", recipes: recipes, keywords: keywords
+  def search(conn, %{"keywords" => keywords} = params) do
+    {recipes, kerosene} = Recipe
+      |> Recipes.search_recipes(keywords)
+      |> Repo.paginate(params)
+    render conn, "index.html", recipes: recipes, keywords: keywords, kerosene: kerosene
   end
 
   def show(conn, _params) do
