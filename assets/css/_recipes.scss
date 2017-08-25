@@ -3,10 +3,13 @@
 
   .recipe {
     margin-bottom: 30px;
-    .title a {
-      color: $dark;
-      &:hover {
-        color: $primary;
+    .title-wrapper {
+      display: inline-block;
+      .title a {
+        color: $dark;
+        &:hover {
+          color: $primary;
+        }
       }
     }
   }

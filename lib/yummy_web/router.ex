@@ -18,6 +18,7 @@ defmodule YummyWeb.Router do
 
     get "/recipes", RecipeController, :index
     get "/recipes/:id", RecipeController, :show
+    delete "/recipes/:id", RecipeController, :delete
     get "/", RecipeController, :index
   end
 
