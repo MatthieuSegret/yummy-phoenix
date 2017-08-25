@@ -9,7 +9,12 @@ defmodule YummyWeb.RecipeController do
     recipes = Recipe
       |> order_by(desc: :inserted_at)
       |> Repo.all
-    render conn, "index.html", recipes: recipes
+    render conn, "index.html", recipes: recipes, keywords: nil
+  end
+
+  def search(conn, %{"keywords" => keywords}) do
+    recipes = Recipes.search_recipes(keywords) |> Repo.all
+    render conn, "index.html", recipes: recipes, keywords: keywords
   end
 
   def show(conn, _params) do

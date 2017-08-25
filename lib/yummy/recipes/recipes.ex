@@ -3,6 +3,12 @@ defmodule Yummy.Recipes do
   alias Yummy.Recipes.Recipe
   alias Yummy.Repo
 
+  def search_recipes(keywords) do
+    from r in Recipe,
+    where: ilike(r.title, ^("%#{keywords}%")) or
+           ilike(r.content, ^("%#{keywords}%"))
+  end
+
   def create_recipe(attrs) do
     %Recipe{}
     |> Recipe.changeset(attrs)

@@ -1,8 +1,23 @@
 <h1 class="title is-3 has-text-centered">Les recettes de cuisine de vos amis</h1>
 <hr/>
 
-<div class="content">
-  <%= link "Nouvelle Recette", to: recipe_path(@conn, :new), class: "button is-primary" %>
+<div class="columns">
+  <div class="column">
+    <%= form_tag recipe_path(@conn, :search), method: :get do %>
+      <div class="field has-addons">
+        <div class="control">
+          <input class="input" type="text" name="keywords" value="<%=@keywords%>">
+        </div>
+        <div class="control">
+          <input class="button" name="commit" type="submit" value="Rechercher">
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="column">
+    <%= link "Nouvelle Recette", to: recipe_path(@conn, :new), class: "button is-primary is-pulled-right" %>
+  </div>
 </div>
 
 <div class="recipes">
