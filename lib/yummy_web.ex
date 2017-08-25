@@ -39,7 +39,8 @@ defmodule YummyWeb do
       use Phoenix.HTML
 
       import YummyWeb.Router.Helpers
-      import YummyWeb.ErrorHelpers
+      import YummyWeb.Helpers.ErrorHelpers
+      import YummyWeb.Helpers.InputHelpers
       import YummyWeb.Gettext
     end
   end

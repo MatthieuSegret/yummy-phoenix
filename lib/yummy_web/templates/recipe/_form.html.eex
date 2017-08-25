@@ -1,15 +1,6 @@
 <%= form_for @changeset, @action, fn f -> %>
-  <div class="field">
-    <%= label f, :title, "Titre", class: "label" %>
-    <%= text_input f, :title, class: "input" %>
-    <%= error_tag f, :title %>
-  </div>
-
-  <div class="field">
-    <%= label f, :content, "Recette", class: "label" %>
-    <%= textarea f, :content, class: "textarea", rows: "14" %>
-    <%= error_tag f, :content %>
-  </div>
+  <%= input f, :title, label: "Titre" %>
+  <%= input f, :content, label: "Recette", using: :textarea, input_html: [rows: 14] %>
 
   <div class="field is-grouped">
     <div class="control"><%= submit "Soumettre", class: "button is-primary" %></div>

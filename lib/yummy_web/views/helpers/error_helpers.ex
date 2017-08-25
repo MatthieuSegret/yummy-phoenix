@@ -1,4 +1,4 @@
-defmodule YummyWeb.ErrorHelpers do
+defmodule YummyWeb.Helpers.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
