@@ -15,6 +15,9 @@
         <%= link "Editer", to: recipe_path(@conn, :edit, recipe) %>
         <%= link "Supprimer", to: recipe_path(@conn, :delete, recipe), method: :delete, data: [confirm: "Êtes-vous sûr ?"] %>
       </div>
+      <div class="recipe-begin">
+        <%= description(recipe.content) %>
+      </div>
     </div>
   <% end %>
 </div>
