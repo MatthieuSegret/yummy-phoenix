@@ -1,6 +1,10 @@
 <h1 class="title is-3 has-text-centered">Les recettes de cuisine de vos amis</h1>
 <hr/>
 
+<div class="content">
+  <%= link "Nouvelle Recette", to: recipe_path(@conn, :new), class: "button is-primary" %>
+</div>
+
 <div class="recipes">
   <%= for recipe <- @recipes do %>
     <div class="recipe">

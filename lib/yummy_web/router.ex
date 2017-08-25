@@ -17,6 +17,8 @@ defmodule YummyWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/recipes", RecipeController, :index
+    get "/recipes/new", RecipeController, :new
+    post "/recipes", RecipeController, :create
     get "/recipes/:id", RecipeController, :show
     delete "/recipes/:id", RecipeController, :delete
     get "/", RecipeController, :index

@@ -1,5 +1,6 @@
 defmodule YummyWeb.RecipeController do
   use YummyWeb, :controller
+  alias Yummy.Recipes
   alias Yummy.Recipes.Recipe
 
   plug :put_recipe when action in [:show, :delete]    
@@ -11,6 +12,22 @@ defmodule YummyWeb.RecipeController do
 
   def show(conn, %{"id" => id}) do
     render conn, "show.html", recipe: conn.assigns[:recipe]
+  end
+
+  def new(conn, _params) do
+    changeset = Recipe.changeset(%Recipe{})
+    render conn, "new.html", changeset: changeset
+  end
+
+  def create(conn, %{"recipe" => recipe_params}) do
+    case Recipes.create_recipe(recipe_params) do
+      {:ok, recipe} ->
+        conn
+        |> put_flash(:info, "La recette a bien été créée.")
+        |> redirect(to: recipe_path(conn, :show, recipe))
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, "new.html", changeset: changeset)
+    end
   end
 
   def delete(conn, _params) do

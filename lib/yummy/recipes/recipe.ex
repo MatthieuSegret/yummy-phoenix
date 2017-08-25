@@ -12,7 +12,7 @@ defmodule Yummy.Recipes.Recipe do
   end
 
   @doc false
-  def changeset(%Recipe{} = recipe, attrs) do
+  def changeset(%Recipe{} = recipe, attrs \\ %{}) do
     recipe
     |> cast(attrs, [:title, :content])
     |> validate_required([:title, :content])
