@@ -3,14 +3,14 @@ defmodule YummyWeb.RecipeController do
   alias Yummy.Recipes
   alias Yummy.Recipes.Recipe
 
-  plug :put_recipe when action in [:show, :delete]    
+  plug :put_recipe when action in [:show, :edit, :update, :delete]    
 
   def index(conn, _params) do
     recipes = Recipe |> Repo.all
     render conn, "index.html", recipes: recipes
   end
 
-  def show(conn, %{"id" => id}) do
+  def show(conn, _params) do
     render conn, "show.html", recipe: conn.assigns[:recipe]
   end
 
@@ -27,6 +27,22 @@ defmodule YummyWeb.RecipeController do
         |> redirect(to: recipe_path(conn, :show, recipe))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
+    end
+  end
+
+  def edit(conn, _params) do
+    changeset = Recipe.changeset(conn.assigns[:recipe])
+    render conn, "edit.html", changeset: changeset
+  end
+
+  def update(conn, %{"recipe" => recipe_params}) do
+    case Recipes.update_recipe(conn.assigns[:recipe], recipe_params) do
+      {:ok, recipe} ->
+        conn
+        |> put_flash(:info, "La recette a bien été créée.")
+        |> redirect(to: recipe_path(conn, :show, recipe))
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, "edit.html", changeset: changeset)
     end
   end
 

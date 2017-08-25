@@ -12,6 +12,7 @@
         <h2 class="title is-4"><%= link recipe.title, to: recipe_path(@conn, :show, recipe.id) %></h2>
       </div>
       <div class="recipe-actions is-pulled-right">
+        <%= link "Editer", to: recipe_path(@conn, :edit, recipe) %>
         <%= link "Supprimer", to: recipe_path(@conn, :delete, recipe), method: :delete, data: [confirm: "Êtes-vous sûr ?"] %>
       </div>
     </div>
