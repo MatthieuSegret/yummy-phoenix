@@ -3,14 +3,30 @@
 
   .recipe {
     margin-bottom: 30px;
-    .title-wrapper {
-      display: inline-block;
-      .title a {
+    .title-wrapper .title {
+      margin-bottom: 0;
+      a {
         color: $dark;
         &:hover {
           color: $primary;
         }
       }
     }
+  }
+}
+
+.recipe-show {
+  .title-wrapper .title {
+    margin-bottom: 10px;
+  }
+}
+
+.recipe {
+  .title-wrapper .title {
+    display: inline-block;
+  }
+
+  .recipe-info {
+    color: $grey;
   }
 }

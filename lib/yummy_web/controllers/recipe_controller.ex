@@ -6,7 +6,9 @@ defmodule YummyWeb.RecipeController do
   plug :put_recipe when action in [:show, :edit, :update, :delete]    
 
   def index(conn, _params) do
-    recipes = Recipe |> Repo.all
+    recipes = Recipe
+      |> order_by(desc: :inserted_at)
+      |> Repo.all
     render conn, "index.html", recipes: recipes
   end
 

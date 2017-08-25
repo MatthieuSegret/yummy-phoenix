@@ -1,5 +1,18 @@
 <%= form_for @changeset, @action, fn f -> %>
   <%= input f, :title, label: "Titre" %>
+
+  <div class="columns">
+    <div class="column">
+      <%= input f, :total_time, label: "Temps", collection: Recipe.total_time_options %>
+    </div>
+    <div class="column">
+      <%= input f, :level, label: "Niveau", collection: Recipe.level_options %>
+    </div>
+    <div class="column">
+      <%= input f, :budget, collection: Recipe.budget_options %>
+    </div>
+  </div>
+
   <%= input f, :content, label: "Recette", using: :textarea, input_html: [rows: 14] %>
 
   <div class="field is-grouped">

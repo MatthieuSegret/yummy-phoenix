@@ -1,8 +1,12 @@
-<div class="content recipe-show">
-  <h1 class="title is-3">
-    <%= @recipe.title %>
-  </h1>
-  <hr/>
+<div class="content recipe recipe-show">
+  <div class="title-wrapper">
+    <h1 class="title is-3">
+      <%= @recipe.title %>
+    </h1>
+    <%= render "_recipe_actions.html", conn: @conn, recipe: @recipe %>
+    <%= render "_recipe_infos.html", recipe: @recipe %>
+    <hr/>
+  </div>
 
   <div class="recipe-content">
     <%= markdown(@recipe.content) %>

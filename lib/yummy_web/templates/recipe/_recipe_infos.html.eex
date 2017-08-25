@@ -1,0 +1,5 @@
+<div class="recipe-info">
+  <span class="recipe-total-time"><%= @recipe.total_time%></span> -
+  <span class="recipe-level"><%= @recipe.level %></span> -
+  <span class="recipe-budget"><%= @recipe.budget%></span>
+</div>

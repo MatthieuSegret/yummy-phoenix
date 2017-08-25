@@ -10,11 +10,11 @@
     <div class="recipe">
       <div class="title-wrapper">
         <h2 class="title is-4"><%= link recipe.title, to: recipe_path(@conn, :show, recipe.id) %></h2>
+        <%= render "_recipe_actions.html", conn: @conn, recipe: recipe %>
       </div>
-      <div class="recipe-actions is-pulled-right">
-        <%= link "Editer", to: recipe_path(@conn, :edit, recipe) %>
-        <%= link "Supprimer", to: recipe_path(@conn, :delete, recipe), method: :delete, data: [confirm: "Êtes-vous sûr ?"] %>
-      </div>
+
+      <%= render "_recipe_infos.html", recipe: recipe %>
+
       <div class="recipe-begin">
         <%= description(recipe.content) %>
       </div>
