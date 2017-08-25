@@ -16,7 +16,7 @@ defmodule YummyWeb.Router do
   scope "/", YummyWeb do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", RecipeController, :index
   end
 
   # Other scopes may use custom stacks.

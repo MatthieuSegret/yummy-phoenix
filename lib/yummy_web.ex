@@ -23,6 +23,7 @@ defmodule YummyWeb do
       import Plug.Conn
       import YummyWeb.Router.Helpers
       import YummyWeb.Gettext
+      alias Yummy.Repo
     end
   end
 

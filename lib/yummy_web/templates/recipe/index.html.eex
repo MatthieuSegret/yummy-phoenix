@@ -1,0 +1,10 @@
+<h1>Les recettes de cuisine de vos amis</h1>
+<hr/>
+
+<div class="recipes">
+  <%= for recipe <- @recipes do %>
+    <div class="recipe">
+      <%= recipe.title %>
+    </div>
+  <% end %>
+</div>
