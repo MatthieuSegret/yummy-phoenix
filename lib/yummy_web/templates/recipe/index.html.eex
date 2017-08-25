@@ -1,10 +1,10 @@
-<h1>Les recettes de cuisine de vos amis</h1>
+<h1 class="title is-3 has-text-centered">Les recettes de cuisine de vos amis</h1>
 <hr/>
 
 <div class="recipes">
   <%= for recipe <- @recipes do %>
     <div class="recipe">
-      <%= link recipe.title, to: recipe_path(@conn, :show, recipe.id) %>
+      <h2 class="title is-4"><%= link recipe.title, to: recipe_path(@conn, :show, recipe.id) %></h2>
     </div>
   <% end %>
 </div>

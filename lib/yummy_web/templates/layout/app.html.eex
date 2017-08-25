@@ -12,15 +12,37 @@
   </head>
 
   <body>
-    <div class="container">
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+        <header class="header">
+      <div class="container">
+        <nav class="navbar is-primary" role="navigation">
+          <div class="navbar-brand">
+            <%= link to: recipe_path(@conn, :index), class: "navbar-item" do %>
+              <%= img_tag static_path(@conn, "/images/yummy-icon.png"), class: "yummy-icon" %>
+            <% end %>
+          </div>
+        </nav>
+      </div>
+    </header>
 
-      <main role="main">
-        <%= render @view_module, @view_template, assigns %>
-      </main>
+    <main role="main">
+      <section class="section">
+        <div class="container">
+          <div class="columns">
+            <div class="column is-offset-2 is-8">
+              <%= if get_flash(@conn, :notice) do %>
+                <p class="notification is-primary" role="alert"><%= get_flash(@conn, :notice) %></p>
+              <% end %>
+              <%= if get_flash(@conn, :error) do %>
+                <p class="notification is-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+              <% end %>
 
-    </div> <!-- /container -->
+              <%= render @view_module, @view_template, assigns %>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
