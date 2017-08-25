@@ -1,0 +1,11 @@
+<div class="recipe-show">
+  <h1>
+    <%= @recipe.title %>
+  </h1>
+
+  <div class="content">
+    <%= @recipe.content %>
+  </div>
+
+  <%= link 'Back', to: recipe_path(@conn, :index) %>
+</div>

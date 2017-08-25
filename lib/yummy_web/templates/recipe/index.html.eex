@@ -4,7 +4,7 @@
 <div class="recipes">
   <%= for recipe <- @recipes do %>
     <div class="recipe">
-      <%= recipe.title %>
+      <%= link recipe.title, to: recipe_path(@conn, :show, recipe.id) %>
     </div>
   <% end %>
 </div>
