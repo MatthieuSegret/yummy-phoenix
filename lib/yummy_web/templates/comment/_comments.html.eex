@@ -1,0 +1,16 @@
+<%= unless Enum.empty?(@recipe.comments) do %>
+  <div class="comments" id="comments">
+    <h4 class="title is-4">Commentaires</h2>
+    <ul>
+      <%= for comment <- @recipe.comments do %>
+        <li class="comment">
+          <div class="comment-content"><%= comment.body %></div>
+          <div class="comment-info">
+            <span>Par <%= comment.user.name %> le </span>
+            <span><%= Timex.format!(comment.inserted_at, "%d/%m/%Y", :strftime) %></span>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

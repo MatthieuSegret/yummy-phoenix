@@ -34,7 +34,10 @@ defmodule YummyWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/recipes/search", RecipeController, :search
-    resources "/recipes", RecipeController
+    resources "/recipes", RecipeController do
+      resources "/comments", CommentController, only: [:create]
+    end
+
     get "/", RecipeController, :index
   end
 

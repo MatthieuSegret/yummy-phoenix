@@ -1,10 +1,10 @@
 defmodule YummyWeb.RecipeController do
   use YummyWeb, :controller
   alias Yummy.Recipes
-  alias Yummy.Recipes.Recipe
+  alias Yummy.Recipes.{Recipe, Comment}
 
   plug Coherence.RequireLogin when action in [:create, :update, :new, :edit, :delete]    
-  plug :put_recipe when action in [:show, :edit, :update, :delete]
+  plug :put_recipe when action in [:edit, :update, :delete]
   plug :is_owner when action in [:edit, :update, :delete]  
 
   def index(conn, params) do
@@ -23,8 +23,13 @@ defmodule YummyWeb.RecipeController do
     render conn, "index.html", recipes: recipes, keywords: keywords, kerosene: kerosene
   end
 
-  def show(conn, _params) do
-    render conn, "show.html", recipe: conn.assigns[:recipe]
+  def show(conn, %{"id" => id}) do
+    recipe = Recipe
+    |> preload([{:comments, :user}, :user])        
+    |> Repo.get!(id)
+
+    comment_changeset = %Comment{} |> Comment.changeset
+    render conn, "show.html", comment_changeset: comment_changeset, recipe: recipe
   end
 
   def new(conn, _params) do

@@ -1,7 +1,7 @@
 defmodule Yummy.Recipes do
   import Ecto.Query, warn: false
   import Ecto.Changeset, only: [put_assoc: 3]  
-  alias Yummy.Recipes.Recipe
+  alias Yummy.Recipes.{Recipe, Comment}
   alias Yummy.Repo
 
   def search_recipes(query, keywords) do
@@ -21,5 +21,14 @@ defmodule Yummy.Recipes do
     recipe
     |> Recipe.changeset(attrs)
     |> Repo.update()
+  end
+
+
+  def create_comment(user, recipe, attrs) do
+    %Comment{}
+    |> Comment.changeset(attrs)
+    |> put_assoc(:user, user)
+    |> put_assoc(:recipe, recipe)
+    |> Repo.insert()
   end
 end

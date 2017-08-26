@@ -17,3 +17,10 @@
     <%= markdown(@recipe.content) %>
   </div>
 </div>
+
+<%= render CommentView, "_comments.html", conn: @conn, recipe: @recipe  %>
+
+<%= render CommentView, "_new.html",
+                        conn: @conn,
+                        recipe: @recipe,
+                        comment_changeset: @comment_changeset  %>

@@ -1,0 +1,13 @@
+<%= if logged_in?(@conn) do %>
+  <div class="new-comment">
+    <h4 class="title is-4">Nouveau Commentaire</h3>
+
+    <%= form_for @comment_changeset, recipe_comment_path(@conn, :create, @recipe), fn f -> %>
+      <%= input f, :body, using: :textarea, input_html: [rows: 4], label: false %>
+
+      <div class="field">
+        <%= submit "Soumettre", class: "button is-primary" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

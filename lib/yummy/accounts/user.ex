@@ -3,12 +3,13 @@ defmodule Yummy.Accounts.User do
   use Ecto.Schema
   use Coherence.Schema
 
-  alias Yummy.Recipes.Recipe
+  alias Yummy.Recipes.{Recipe, Comment}
 
   schema "users" do
     field :name, :string
     field :email, :string
     has_many :recipes, Recipe
+    has_many :comments, Comment
     coherence_schema()
 
     timestamps()
