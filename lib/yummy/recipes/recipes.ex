@@ -2,7 +2,7 @@ defmodule Yummy.Recipes do
   import Ecto.Query, warn: false
   import Ecto.Changeset, only: [put_assoc: 3]  
   alias Yummy.Recipes.{Recipe, Comment}
-  alias Yummy.Repo
+  alias Yummy.{Repo, ImageUploader}
 
   def search_recipes(query, keywords) do
     from r in query,
@@ -21,6 +21,28 @@ defmodule Yummy.Recipes do
     recipe
     |> Recipe.changeset(attrs)
     |> Repo.update()
+  end
+
+  def delete(%Recipe{} = recipe) do
+    {:ok, recipe} = recipe |> Repo.delete()
+    delete_image_files(recipe)
+    {:ok, recipe}
+  end
+
+  def delete_image(%Recipe{} = recipe) do
+    recipe
+    |> delete_image_files
+    |> Recipe.changeset(%{image_url: nil})
+    |> Repo.update()
+  end
+
+  defp delete_image_files(%Recipe{image_url: nil} = recipe), do: recipe
+  defp delete_image_files(%Recipe{} = recipe) do
+    path = ImageUploader.url({recipe.image_url, recipe})
+      |> String.split("?")
+      |> List.first 
+    :ok = ImageUploader.delete({path, recipe})
+    recipe
   end
 
 

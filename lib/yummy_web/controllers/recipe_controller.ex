@@ -56,6 +56,7 @@ defmodule YummyWeb.RecipeController do
   def update(conn, %{"recipe" => recipe_params}) do
     case Recipes.update_recipe(conn.assigns[:recipe], recipe_params) do
       {:ok, recipe} ->
+        if recipe.remove_image, do: Recipes.delete_image(recipe)        
         conn
         |> put_flash(:info, "La recette a bien été créée.")
         |> redirect(to: recipe_path(conn, :show, recipe))
@@ -65,7 +66,7 @@ defmodule YummyWeb.RecipeController do
   end
 
   def delete(conn, _params) do
-    {:ok, _recipe} = conn.assigns[:recipe] |> Repo.delete
+    {:ok, _recipe} = conn.assigns[:recipe] |> Recipes.delete
     conn
     |> put_flash(:notice, "La recette a bien été supprimé.")
     |> redirect(to: recipe_path(conn, :index))

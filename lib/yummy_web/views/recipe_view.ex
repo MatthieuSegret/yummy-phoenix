@@ -2,6 +2,7 @@ defmodule YummyWeb.RecipeView do
   use YummyWeb, :view
   alias YummyWeb.CommentView
   alias Yummy.Recipes.Recipe
+  alias Yummy.ImageUploader
 
   def description(text) do
     text

@@ -24,6 +24,31 @@ defmodule YummyWeb.Helpers.InputHelpers do
     end
   end
 
+  defp wrapper(form, field, :file_input, label_value, input_options, class_options) do
+    content_tag(:div, class: "field #{class_options}") do
+      content_tag(:div, class: "file") do
+        [
+          content_tag :label, [class: "file-label is-medium"] do
+            input_options = merge_options(input_options, class: "file-input #{state_class(form, field)}")
+            [
+              file_input(form, field, input_options),
+              content_tag(:span, class: "file-cta") do
+                [
+                  content_tag(:span, class: "file-icon") do
+                    content_tag(:i, "", class: "fa fa-upload")
+                  end,
+                  content_tag(:span, label_value, class: "file-label")
+                ]
+              end,
+              content_tag(:span, "", class: "file-name is-hidden")
+            ]
+          end,
+          ErrorHelpers.error_tag(form, field)
+        ]
+      end
+    end
+  end
+
   defp wrapper(form, field, type, label_value, input_options, class_options) do
     content_tag :div, [class: "field #{class_options}"] do
       [

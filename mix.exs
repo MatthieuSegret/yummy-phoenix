@@ -20,7 +20,15 @@ defmodule Yummy.Mixfile do
   def application do
     [
       mod: {Yummy.Application, []},
-      extra_applications: [:logger, :runtime_tools, :coherence]
+      extra_applications: [
+        :logger,
+        :runtime_tools,
+        :coherence,
+        :ex_aws,
+        :hackney,
+        :poison,
+        :arc_ecto
+      ]
     ]
   end
 
@@ -43,7 +51,13 @@ defmodule Yummy.Mixfile do
       {:cowboy, "~> 1.0"},
       {:earmark, "~> 1.2.3"},
       {:kerosene, "~> 0.7.0"},
-      {:coherence, "~> 0.5.0", override: true}
+      {:coherence, "~> 0.5.0", override: true},
+      {:arc, "~> 0.8.0"},
+      {:ex_aws, "~> 1.1.3"},
+      {:hackney, "~> 1.8.0", override: true},
+      {:poison, "~> 3.1"},
+      {:sweet_xml, "~> 0.6"},
+      {:arc_ecto, "~> 0.7.0"},
     ]
   end
 

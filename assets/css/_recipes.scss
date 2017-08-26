@@ -1,9 +1,15 @@
 .recipes {
-  margin-top: 30px;
+  margin-top: 40px;
   margin-bottom: 40px;
 
   .recipe {
     margin-bottom: 30px;
+    .recipe-image-wrapper {
+      float: left;
+      height: 100px;
+      width: 100px;
+      margin-right: 20px;
+    }
     .title-wrapper .title {
       margin-bottom: 0;
       a {
@@ -20,6 +26,22 @@
   .title-wrapper .title {
     margin-bottom: 10px;
   }
+  .recipe-content {
+    .recipe-image {
+      display: block;
+      margin-bottom: 20px;
+      height: 250px;
+    }
+  }
+}
+
+.recipe-form {
+  .recipe-image {
+    display: inline-block;
+  }
+  .remove-image-link {
+    vertical-align: bottom;
+  }
 }
 
 .recipe {
@@ -34,4 +56,8 @@
   .recipe-info-second {
     color: $grey-light;
   }
+}
+
+.recipe-image {
+  border-radius: 10px;
 }

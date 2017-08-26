@@ -1,4 +1,4 @@
-<%= form_for @changeset, @action, fn f -> %>
+<%= form_for @changeset, @action, [multipart: true, class: "recipe-form"], fn f -> %>
   <%= input f, :title, label: "Titre" %>
 
   <div class="columns">
@@ -13,6 +13,15 @@
     </div>
   </div>
 
+  <%= if assigns[:recipe] && @recipe.image_url do %>
+    <div class="field">
+      <%= label f, :image_url, "Photo", class: "label" %>
+      <%= img_tag ImageUploader.url({@recipe.image_url, @recipe}, :mini_thumb), class: "recipe-image image is-96x96" %>
+      <%= link "Supprimer", to: "#", class: "button is-link remove-image-link" %>
+      <%= hidden_input f, :remove_image, class: "remove-image-input", value: "false" %>
+    </div>
+  <% end %>
+  <%= input f, :image_url, label: "Choisir une photo...", using: :file_input %>
   <%= input f, :content, label: "Recette", using: :textarea, input_html: [rows: 14] %>
 
   <div class="field is-grouped">

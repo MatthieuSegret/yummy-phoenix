@@ -25,15 +25,22 @@
 <div class="recipes">
   <%= for recipe <- @recipes do %>
     <div class="recipe">
-      <div class="title-wrapper">
-        <h2 class="title is-4"><%= link recipe.title, to: recipe_path(@conn, :show, recipe.id) %></h2>
-        <%= render "_recipe_actions.html", conn: @conn, recipe: recipe %>
+      <div class="recipe-image-wrapper">
+        <%= if recipe.image_url do %>
+          <%= img_tag ImageUploader.url({recipe.image_url, recipe}, :mini_thumb), class: "recipe-image image is-96x96" %>
+        <% end %>
       </div>
+      <div class="recipe-preview">
+        <div class="title-wrapper">
+          <h2 class="title is-4"><%= link recipe.title, to: recipe_path(@conn, :show, recipe.id) %></h2>
+          <%= render "_recipe_actions.html", conn: @conn, recipe: recipe %>
+        </div>
 
-      <%= render "_recipe_infos.html", recipe: recipe %>
+        <%= render "_recipe_infos.html", recipe: recipe %>
 
-      <div class="recipe-begin">
-        <%= description(recipe.content) %>
+        <div class="recipe-begin">
+          <%= description(recipe.content) %>
+        </div>
       </div>
     </div>
   <% end %>

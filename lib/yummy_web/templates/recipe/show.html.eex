@@ -13,9 +13,12 @@
     <hr/>
   </div>
 
-  <div class="recipe-content">
-    <%= markdown(@recipe.content) %>
-  </div>
+    <div class="recipe-content">
+      <%= if @recipe.image_url do %>
+        <%= img_tag ImageUploader.url({@recipe.image_url, @recipe}, :thumb), class: "recipe-image" %>
+      <% end %>
+      <%= markdown(@recipe.content) %>
+    </div>
 </div>
 
 <%= render CommentView, "_comments.html", conn: @conn, recipe: @recipe  %>

@@ -2,6 +2,7 @@
 /_build
 /db
 /deps
+/uploads
 /*.ez
 
 # Generated on crash by the VM
