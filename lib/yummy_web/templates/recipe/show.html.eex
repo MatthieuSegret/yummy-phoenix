@@ -5,6 +5,11 @@
     </h1>
     <%= render "_recipe_actions.html", conn: @conn, recipe: @recipe %>
     <%= render "_recipe_infos.html", recipe: @recipe %>
+
+    <div class="recipe-info-second">
+      <span class="recipe-author">Par <%= @recipe.user.name%></span> le
+      <span class="recipe-date"><%= Timex.format!(@recipe.inserted_at, "%d/%m/%Y", :strftime) %></span>
+    </div>
     <hr/>
   </div>
 

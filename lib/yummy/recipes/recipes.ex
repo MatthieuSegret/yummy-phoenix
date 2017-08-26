@@ -1,5 +1,6 @@
 defmodule Yummy.Recipes do
   import Ecto.Query, warn: false
+  import Ecto.Changeset, only: [put_assoc: 3]  
   alias Yummy.Recipes.Recipe
   alias Yummy.Repo
 
@@ -9,9 +10,10 @@ defmodule Yummy.Recipes do
            ilike(r.content, ^("%#{keywords}%"))
   end
 
-  def create_recipe(attrs) do
+  def create_recipe(user, attrs) do
     %Recipe{}
     |> Recipe.changeset(attrs)
+    |> put_assoc(:user, user)
     |> Repo.insert()
   end
 

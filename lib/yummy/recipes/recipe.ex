@@ -2,6 +2,7 @@ defmodule Yummy.Recipes.Recipe do
   use Ecto.Schema
   import Ecto.Changeset
   alias Yummy.Recipes.Recipe
+  alias Yummy.Accounts.User
 
   @total_time_options ["10 min", "20 min", "30 min", "45 min", "1h", "+1h"]
   @level_options ["Très facile", "Facile", "Moyenne", "Difficile"]
@@ -13,6 +14,7 @@ defmodule Yummy.Recipes.Recipe do
     field :total_time, :string
     field :level, :string
     field :budget, :string
+    belongs_to :user, User
 
     timestamps()
   end

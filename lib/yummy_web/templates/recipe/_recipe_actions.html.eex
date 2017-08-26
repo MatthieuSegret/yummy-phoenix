@@ -1,4 +1,4 @@
-<%= if logged_in?(@conn) do %>
+<%= if logged_in?(@conn) && @recipe.user.id == current_user(@conn).id do %>
   <div class="recipe-actions is-pulled-right">
     <%= link to: recipe_path(@conn, :edit, @recipe) do %>
       <span class="icon"><i class="fa fa-edit"></i></span>

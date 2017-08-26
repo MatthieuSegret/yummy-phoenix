@@ -4,11 +4,13 @@ defmodule YummyWeb.RecipeController do
   alias Yummy.Recipes.Recipe
 
   plug Coherence.RequireLogin when action in [:create, :update, :new, :edit, :delete]    
-  plug :put_recipe when action in [:show, :edit, :update, :delete]    
+  plug :put_recipe when action in [:show, :edit, :update, :delete]
+  plug :is_owner when action in [:edit, :update, :delete]  
 
   def index(conn, params) do
     {recipes, kerosene} = Recipe
       |> order_by(desc: :inserted_at)
+      |> preload(:user)
       |> Repo.paginate(params)
     render conn, "index.html", recipes: recipes, keywords: nil, kerosene: kerosene
   end
@@ -16,6 +18,7 @@ defmodule YummyWeb.RecipeController do
   def search(conn, %{"keywords" => keywords} = params) do
     {recipes, kerosene} = Recipe
       |> Recipes.search_recipes(keywords)
+      |> preload(:user)
       |> Repo.paginate(params)
     render conn, "index.html", recipes: recipes, keywords: keywords, kerosene: kerosene
   end
@@ -30,7 +33,7 @@ defmodule YummyWeb.RecipeController do
   end
 
   def create(conn, %{"recipe" => recipe_params}) do
-    case Recipes.create_recipe(recipe_params) do
+    case current_user(conn) |> Recipes.create_recipe(recipe_params) do
       {:ok, recipe} ->
         conn
         |> put_flash(:info, "La recette a bien été créée.")
@@ -65,7 +68,21 @@ defmodule YummyWeb.RecipeController do
 
   ## Private
   defp put_recipe(conn, _) do
-    recipe = Recipe |> Repo.get!(conn.params["id"])
+    recipe = Recipe
+      |> preload(:user)
+      |> Repo.get!(conn.params["id"])
     assign(conn, :recipe, recipe)
+  end
+
+  defp is_owner(conn, _) do
+    recipe = conn.assigns[:recipe]
+    if recipe.user.id != current_user(conn).id do
+      conn
+      |> put_flash(:error, "Vous ne pouvez pas modifier la recette de quelqu'un d'autre")
+      |> redirect(to: recipe_path(conn, :index))
+      |> halt()
+    else
+      conn
+    end
   end
 end
