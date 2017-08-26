@@ -20,6 +20,11 @@
               <%= img_tag static_path(@conn, "/images/yummy-icon.png"), class: "yummy-icon" %>
             <% end %>
           </div>
+          <div class="navbar-menu">
+            <div class="navbar-end">
+              <%= coherence_links(@conn, :layout) %>
+            </div>
+          </div>
         </nav>
       </div>
     </header>

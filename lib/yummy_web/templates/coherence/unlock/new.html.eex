@@ -1,0 +1,13 @@
+<div class="columns">
+  <div class="column is-offset-2 is-8">
+    <%= form_for @conn, unlock_path(@conn, :create), [as: :unlock], fn f  -> %>
+      <%= input f, :email, label: dgettext("coherence", "Email") %>
+      <%= input f, :password, label: dgettext("coherence", "Password") %>
+
+      <div class="field is-grouped">
+        <div class="control"><%= submit dgettext("coherence", "Send Instructions"), class: "button is-primary" %></div>
+        <div class="control"><%= link dgettext("coherence", "Cancel"), to: Coherence.Config.logged_out_url("/"), class: "button is-link" %></div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="columns">
+  <div class="column is-offset-2 is-8">
+    <h3 class="title is-3"><%= dgettext "coherence", "Reset password" %></h3>
+
+    <%= form_for @changeset, password_path(@conn, :create), [as: :password], fn f  -> %>
+      <%= input f, :email %>
+
+      <div class="field is-grouped">
+        <div class="control"><%= submit dgettext("coherence", "Send reset password link"), class: "button is-primary" %></div>
+        <div class="control"><%= link dgettext("coherence", "Cancel"), to: Coherence.Config.logged_out_url("/"), class: "button is-link" %></div>
+      </div>
+    <% end %>
+  </div>
+</div>

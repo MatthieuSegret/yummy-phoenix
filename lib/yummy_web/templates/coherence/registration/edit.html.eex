@@ -1,0 +1,9 @@
+<div class="columns">
+  <div class="column is-offset-2 is-8">
+    <h3 class="title is-3"><%= dgettext "coherence", "Edit Account" %></h3>
+
+    <%= render "form.html", changeset: @changeset,
+                            label: dgettext("coherence", "Update"), required: [],
+                            action: registration_path(@conn, :update) %>
+  </div>
+</div>

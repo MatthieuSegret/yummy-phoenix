@@ -15,9 +15,11 @@
     <% end %>
   </div>
 
-  <div class="column">
-    <%= link "Nouvelle Recette", to: recipe_path(@conn, :new), class: "button is-primary is-pulled-right" %>
-  </div>
+  <%= if logged_in?(@conn) do %>
+    <div class="column">
+      <%= link "Nouvelle Recette", to: recipe_path(@conn, :new), class: "button is-primary is-pulled-right" %>
+    </div>
+  <% end %>
 </div>
 
 <div class="recipes">

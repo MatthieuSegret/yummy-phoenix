@@ -22,6 +22,28 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+
+config :yummy, YummyWeb.Gettext,
+  default_locale: "fr"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
+
+# %% Coherence Configuration %%   Don't remove this line
+config :coherence,
+  user_schema: Yummy.Accounts.User,
+  repo: Yummy.Repo,
+  module: Yummy,
+  web_module: YummyWeb,
+  router: YummyWeb.Router,
+  messages_backend: YummyWeb.Coherence.Messages,
+  logged_out_url: "/",
+  email_from_name: "Yummy",
+  email_from_email: "no-reply@yummy.com",
+  opts: [:authenticatable, :recoverable, :lockable, :trackable, :unlockable_with_token, :registerable]
+
+config :coherence, YummyWeb.Coherence.Mailer,
+  adapter: Swoosh.Adapters.Sendgrid,
+  api_key: "your api key here"
+# %% End Coherence Configuration %%

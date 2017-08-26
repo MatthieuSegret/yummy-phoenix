@@ -1,0 +1,18 @@
+<%= form_for @changeset, @action, [as: :registration], fn f  -> %>
+
+  <%= input f, :name, label: dgettext("coherence", "Name") %>
+  <%= unless (login_field = Coherence.Config.login_field) == :email do %>
+    <%= input f, login_field %>
+  <% end %>
+  <%= input f, :email, label: dgettext("coherence", "Email") %>
+  <%= if Coherence.Config.require_current_password and not is_nil(@changeset.data.id) do %>
+    <%= input f, :current_password, label: dgettext("coherence", "Current Password") %>
+  <% end %>
+  <%= input f, :password, label: dgettext("coherence", "Password") %>
+  <%= input f, :password_confirmation, label: dgettext("coherence", "Password Confirmation") %>
+
+  <div class="field is-grouped">
+    <div class="control"><%= submit @label, class: "button is-primary" %></div>
+    <div class="control"><%= link dgettext("coherence", "Cancel"), to: Coherence.Config.logged_out_url("/"), class: "button is-link" %></div>
+  </div>
+<% end %>

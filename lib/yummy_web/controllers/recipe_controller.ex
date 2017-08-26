@@ -3,6 +3,7 @@ defmodule YummyWeb.RecipeController do
   alias Yummy.Recipes
   alias Yummy.Recipes.Recipe
 
+  plug Coherence.RequireLogin when action in [:create, :update, :new, :edit, :delete]    
   plug :put_recipe when action in [:show, :edit, :update, :delete]    
 
   def index(conn, params) do

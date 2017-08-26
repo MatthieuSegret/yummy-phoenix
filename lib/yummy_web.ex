@@ -20,11 +20,21 @@ defmodule YummyWeb do
   def controller do
     quote do
       use Phoenix.Controller, namespace: YummyWeb
+      use Coherence.Config
+      use Timex
+
       import Plug.Conn
       import Ecto.Query
       import YummyWeb.Router.Helpers
       import YummyWeb.Gettext
+      import Coherence.ControllerHelpers
+      import YummyWeb.Coherence.ViewHelpers, only: [current_user: 1] 
+      
       alias Yummy.Repo
+      alias Coherence.Config
+      alias Coherence.ControllerHelpers, as: Helpers
+
+      require Redirects
     end
   end
 
@@ -34,8 +44,8 @@ defmodule YummyWeb do
                         namespace: YummyWeb
 
       # Import convenience functions from controllers
-      import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
-
+      import Phoenix.Controller, only: [get_csrf_token: 0, get_flash: 2, view_module: 1]
+      
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
@@ -44,6 +54,7 @@ defmodule YummyWeb do
       import YummyWeb.Helpers.InputHelpers
       import YummyWeb.Helpers.KeroseneHelpers
       import YummyWeb.Gettext
+      import YummyWeb.Coherence.ViewHelpers
     end
   end
 

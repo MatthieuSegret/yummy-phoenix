@@ -1,8 +1,10 @@
-<div class="recipe-actions is-pulled-right">
-  <%= link to: recipe_path(@conn, :edit, @recipe) do %>
-    <span class="icon"><i class="fa fa-edit"></i></span>
-  <% end %>
-  <%= link to: recipe_path(@conn, :delete, @recipe), method: :delete, data: [confirm: "Êtes-vous sûr ?"] do %>
-    <span class="icon"><i class="fa fa-trash-o"></i></span>
-  <% end %>
-</div>
+<%= if logged_in?(@conn) do %>
+  <div class="recipe-actions is-pulled-right">
+    <%= link to: recipe_path(@conn, :edit, @recipe) do %>
+      <span class="icon"><i class="fa fa-edit"></i></span>
+    <% end %>
+    <%= link to: recipe_path(@conn, :delete, @recipe), method: :delete, data: [confirm: "Êtes-vous sûr ?"] do %>
+      <span class="icon"><i class="fa fa-trash-o"></i></span>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,403 @@
+## This file is a PO Template file.
+##
+## `msgid`s here are often extracted from source code.
+## Add new translations manually only if they're dynamic
+## translations that can't be statically extracted.
+##
+## Run `mix gettext.extract` to bring this file up to
+## date. Leave `msgstr`s empty as changing them here as no
+## effect: edit them in PO (`.po`) files instead.
+msgid ""
+msgstr ""
+
+#: lib/yummy_web/emails/coherence/user_email.ex:27
+msgid "%{site_name} - Confirm your new account"
+msgstr ""
+
+#: lib/yummy_web/emails/coherence/user_email.ex:36
+msgid "%{site_name} - Invitation to create a new account"
+msgstr ""
+
+#: lib/yummy_web/emails/coherence/user_email.ex:18
+msgid "%{site_name} - Reset password instructions"
+msgstr ""
+
+#: lib/yummy_web/emails/coherence/user_email.ex:45
+msgid "%{site_name} - Unlock Instructions"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:24
+msgid "Account already confirmed."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:78
+msgid "Account is inactive!"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:25
+msgid "Account is not locked."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:26
+msgid "Account updated successfully."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:29
+msgid "Already logged in."
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/registration/show.html.eex:25
+msgid "Are you sure?"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:31
+msgid "Can't find that token"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/confirmation/new.html.eex:15
+#: lib/yummy_web/templates/coherence/password/edit.html.eex:23
+#: lib/yummy_web/templates/coherence/password/new.html.eex:15
+#: lib/yummy_web/templates/coherence/registration/form.html.eex:51
+#: lib/yummy_web/templates/coherence/session/new.html.eex:28
+#: lib/yummy_web/templates/coherence/unlock/new.html.eex:19
+msgid "Cancel"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/email/password.html.eex:7
+msgid "Change my password"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/email/confirmation.html.eex:7
+msgid "Confirm my Account"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:32
+msgid "Confirmation email sent."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:33
+msgid "Confirmation token expired."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:34
+msgid "Could not find that email address"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/password/edit.html.eex:3
+msgid "Create a New Password"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/email/invitation.html.eex:7
+msgid "Create my Account"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/registration/show.html.eex:22
+msgid "Delete"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/registration/show.html.eex:21
+msgid "Edit"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/registration/edit.html.eex:1
+msgid "Edit Account"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/confirmation/new.html.eex:8
+#: lib/yummy_web/templates/coherence/registration/form.html.eex:24
+#: lib/yummy_web/templates/coherence/unlock/new.html.eex:6
+msgid "Email"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/registration/show.html.eex:15
+msgid "Email:"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:35
+#: lib/yummy_web/views/coherence/coherence_view_helpers.ex:15
+msgid "Forgot your password?"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:36
+msgid "HTTP Authentication Required"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/email/confirmation.html.eex:2
+#: lib/yummy_web/templates/coherence/email/invitation.html.eex:2
+#: lib/yummy_web/templates/coherence/email/password.html.eex:2
+#: lib/yummy_web/templates/coherence/email/unlock.html.eex:2
+msgid "Hello %{name}!"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/email/password.html.eex:10
+msgid "If you didn't request this, please ignore this email."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:37
+msgid "Incorrect %{login_field} or password."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:73
+msgid "Invalid %{user_token} error: %{error}"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:39
+msgid "Invalid Invitation. Please contact the site administrator."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:40
+msgid "Invalid Request."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:41
+msgid "Invalid confirmation token."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:42
+msgid "Invalid email or password."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:43
+msgid "Invalid invitation token."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:44
+msgid "Invalid reset token."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:45
+msgid "Invalid unlock token."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:46
+msgid "Invitation already sent."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:47
+msgid "Invitation sent."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:48
+#: lib/yummy_web/views/coherence/coherence_view_helpers.ex:18
+msgid "Invite Someone"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:77
+msgid "Mailer configuration required!"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:49
+msgid "Maximum Login attempts exceeded. Your account has been locked."
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/registration/form.html.eex:10
+msgid "Name"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/registration/show.html.eex:4
+msgid "Name:"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:50
+#: lib/yummy_web/views/coherence/coherence_view_helpers.ex:17
+msgid "Need An Account?"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/registration/form.html.eex:5
+msgid "Oops, something went wrong! Please check the errors below."
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/password/edit.html.eex:10
+#: lib/yummy_web/templates/coherence/registration/form.html.eex:38
+#: lib/yummy_web/templates/coherence/session/new.html.eex:13
+#: lib/yummy_web/templates/coherence/unlock/new.html.eex:12
+msgid "Password"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/password/edit.html.eex:16
+#: lib/yummy_web/templates/coherence/registration/form.html.eex:44
+msgid "Password Confirmation"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:52
+msgid "Password reset token expired."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:53
+msgid "Password updated successfully."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:54
+msgid "Problem confirming user account. Please contact the system administrator."
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/registration/new.html.eex:4
+msgid "Register"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/registration/new.html.eex:1
+msgid "Register Account"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:55
+msgid "Registration created successfully."
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/session/new.html.eex:21
+msgid "Remember Me?"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/confirmation/new.html.eex:3
+msgid "Resend Confirmation Instructions"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/confirmation/new.html.eex:14
+msgid "Resend Email"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:57
+#: lib/yummy_web/views/coherence/coherence_view_helpers.ex:19
+msgid "Resend confirmation email"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/password/new.html.eex:14
+msgid "Reset Password"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:58
+msgid "Reset email sent. Check your email for a reset link."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:59
+msgid "Restricted Area"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/unlock/new.html.eex:18
+msgid "Send Instructions"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:60
+#: lib/yummy_web/views/coherence/coherence_view_helpers.ex:16
+msgid "Send an unlock email"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/password/new.html.eex:3
+msgid "Send reset password link"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/registration/show.html.eex:1
+msgid "Show account"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:61
+#: lib/yummy_web/templates/coherence/session/new.html.eex:27
+#: lib/yummy_web/views/coherence/coherence_view_helpers.ex:20
+msgid "Sign In"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:62
+#: lib/yummy_web/views/coherence/coherence_view_helpers.ex:21
+msgid "Sign Out"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:63
+msgid "Signed in successfully."
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/email/password.html.eex:4
+msgid "Someone has requested a link to change your password, and you can do this through the link below."
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/email/confirmation.html.eex:9
+#: lib/yummy_web/templates/coherence/email/invitation.html.eex:9
+#: lib/yummy_web/templates/coherence/email/unlock.html.eex:9
+msgid "Thank you!"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:64
+msgid "Too many failed login attempts. Account has been locked."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:65
+msgid "Unauthorized IP Address"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:66
+msgid "Unlock Instructions sent."
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/email/unlock.html.eex:7
+msgid "Unlock my Account"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/registration/edit.html.eex:4
+msgid "Update"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/password/edit.html.eex:22
+msgid "Update Password"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:67
+msgid "User account confirmed successfully."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:68
+msgid "User already has an account!"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:75
+msgid "You are using an invalid security token for this site! This security\nviolation has been logged.\n"
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/email/invitation.html.eex:4
+msgid "You have been invited to create an Account. Use the link below to create an account."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:69
+msgid "You must confirm your account before you can login."
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/email/unlock.html.eex:4
+msgid "You requested unlock instructions for your locked account. Please click the link below to unlock your account."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:70
+msgid "Your account has been unlocked"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:71
+msgid "Your account is not locked."
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/email/confirmation.html.eex:4
+msgid "Your new account is almost ready. Click the link below to confirm you new account."
+msgstr ""
+
+#: lib/yummy_web/templates/coherence/email/password.html.eex:13
+msgid "Your password won't change until you access the link above and create a new one."
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:27
+msgid "already confirmed"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:28
+msgid "already locked"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:30
+msgid "can't be blank"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:38
+msgid "invalid current password"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:51
+msgid "not locked"
+msgstr ""
+
+#: lib/yummy_web/coherence_messages.ex:56
+msgid "required"
+msgstr ""
